@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const scriptCanvas = document.querySelector('.script-canvas');
     const scriptNavContainer = document.querySelector('.script-nav-container');
-    const jsonFilePath = 'https://webtoolscript.pages.dev/script_entries.json';
+    const jsonFilePath = 'https://marque6299.github.io/navan_scripts/script_entries.json';
     const customerInput = document.getElementById('customer');
     const agentInput = document.getElementById('user');
     let stateManager;
