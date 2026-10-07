@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, interactive-widget=resizes-content">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EEHXSE9PG0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-EEHXSE9PG0');
+    </script>
+
+    <title>Navan Scripts | Searchable chat and voice response scripts for support agents</title>
+    <meta name="description" content="Navan Scripts is a searchable library of ready-to-use chat response scripts for customer support agents: openings, empathy, holds, baggage, refunds, exchanges, fraud and escalation. Click a script to copy it.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta name="theme-color" content="#2b2d42">
+    <link rel="canonical" href="https://webtoolscript.pages.dev/">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Navan Scripts">
+    <meta property="og:title" content="Navan Scripts | Searchable response scripts for support agents">
+    <meta property="og:description" content="Search, personalise and copy ready-to-use support scripts in one click.">
+    <meta property="og:url" content="https://webtoolscript.pages.dev/">
+    <meta name="twitter:card" content="summary">
+    <meta name="google-adsense-account" content="ca-pub-6978764838614552">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="theme.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+    <script src="config.js"></script>
+    <script src="theme-manager.js"></script><!-- applies the saved theme before first paint -->
+    <!-- AdSense library (units are placed by ads.js; configure slots in config.js) -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6978764838614552" crossorigin="anonymous"></script>
+</head>
+<body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <noscript><p style="padding:16px">Navan Scripts needs JavaScript to show the script library.</p></noscript>
+    <div class="app-container" id="top">
+        <!-- Top: header + category rail stay in view while the page scrolls -->
+        <div class="top-stack" id="top-stack">
+            <header class="head-banner">
+                <a class="head-logo" href="./" aria-label="Navan Scripts home"><i class="fa-solid fa-comments" aria-hidden="true"></i><span>Navan Scripts</span></a>
+                <div class="searchbar-group" role="search">
+                    <input type="search" id="search-input" placeholder="Search scripts (press /)" aria-label="Search scripts" autocomplete="off">
+                    <button type="button" id="search-clear" class="search-clear-btn" aria-label="Clear search" hidden><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+                    <button type="button" id="search-action" aria-label="Search"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></button>
+                </div>
+                <div class="script-canvas-reset">
+                    <button type="button" class="global-script-reset" aria-label="Reset all fields" title="Reset all fields"><i class="fa-solid fa-trash-can-arrow-up" aria-hidden="true"></i></button>
+                </div>
+                <div class="customer-input">
+                    <input type="text" id="customer" placeholder="Customer Name" aria-label="Customer name" autocomplete="off">
+                    <i class="fa-solid fa-user-tie" aria-hidden="true"></i>
+                </div>
+                <div class="agent-user-input">
+                    <input type="text" id="user" placeholder="Agent Name" aria-label="Agent name" autocomplete="nickname">
+                    <i class="fa-solid fa-user-secret" aria-hidden="true"></i>
+                </div>
+                <div class="theme-wrap">
+                    <button type="button" id="theme-toggle" class="theme-toggle" aria-haspopup="dialog" aria-expanded="false" aria-controls="theme-panel" aria-label="Theme settings"><i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i></button>
+                    <div id="theme-panel" class="theme-panel" role="dialog" aria-label="Theme settings" hidden></div>
+                </div>
+            </header>
+            <div class="script-nav-container" aria-label="Script categories">
+                <div class="skeleton skeleton-tabs" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+            </div>
+        </div>
+
+        <!-- The page itself scrolls (no inner scroll box): wheel, touch, keyboard and Back to top all work natively -->
+        <main class="main-page" id="main-content" tabindex="-1">
+            <h1 class="sr-only">Navan Scripts: searchable response scripts for customer support agents</h1>
+            <div class="search-count" id="search-count"></div>
+            <div class="script-canvas" aria-busy="true">
+                <div class="skeleton" aria-hidden="true"><div class="sk-row"><div class="sk-title"></div><div class="sk-stack"><div class="sk-card"></div><div class="sk-card"></div></div></div><div class="sk-row"><div class="sk-title"></div><div class="sk-stack"><div class="sk-card"></div><div class="sk-card"></div><div class="sk-card"></div></div></div></div>
+            </div>
+            <div class="no-search-results" id="no-results"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i><p>No matching scripts found</p></div>
+            <div class="load-error" id="load-error" role="alert"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i><p>The scripts could not be loaded. Check your connection and try again.</p><button type="button" id="load-retry">Try again</button></div>
+        </main>
+
+        <!-- Bottom: About strip + footer are fixed, so they are always visible -->
+        <div class="bottom-bar" id="bottom-bar">
+            <section class="site-intro" aria-label="About this script library">
+                <p><strong>About this library:</strong>
+                    <span class="long">a free, independent set of ready-to-use chat scripts for support agents. Pick a category, fill the highlighted fields, click a card to copy. Your entries stay in your browser.</span>
+                    <span class="short">free chat scripts for support agents. Tap a card to copy; entries stay in your browser.</span>
+                    <a href="help.html" target="_blank" rel="noopener">Help guide</a> &middot; <a href="about.html" target="_blank" rel="noopener">About</a></p>
+            </section>
+            <footer class="site-footer">
+                <div class="footer-bottom">
+                    <div class="copyright">&copy; <span id="year">2026</span> Navan Scripts. <span id="footer-meta"></span></div>
+                    <div class="footer-actions">
+                        <a href="#top" class="to-top">Back to top</a>
+                        <button type="button" class="legal-toggle" aria-expanded="false" aria-controls="legal-links">Legal</button>
+                        <nav class="legal-links" id="legal-links" aria-label="Legal and site information">
+                            <a href="privacy-policy.html" target="_blank" rel="noopener">Privacy Policy</a>
+                            <a href="terms-conditions.html" target="_blank" rel="noopener">Terms &amp; Conditions</a>
+                            <a href="cookie-policy.html" target="_blank" rel="noopener">Cookie Policy</a>
+                            <a href="adsense-disclaimer.html" target="_blank" rel="noopener">Disclaimer</a>
+                            <a href="about.html" target="_blank" rel="noopener">About</a>
+                            <a href="help.html" target="_blank" rel="noopener">Help</a>
+                            <a href="contact.html" target="_blank" rel="noopener">Contact</a>
+                            <a href="cookie-policy.html#choices" id="privacy-choices" target="_blank" rel="noopener">Privacy choices</a>
+                        </nav>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <div id="live" class="sr-only" role="status" aria-live="polite"></div>
+    </div>
+
+    <script src="analytics.js" defer></script>
+    <script src="script.js" defer></script>
+    <script src="copy-function.js" defer></script>
+    <script src="sync-inputs.js" defer></script>
+    <script src="tabs.js" defer></script>
+    <script src="ads.js" defer></script>
+    <script src="session.js" defer></script><!-- version check every 10 min + input snapshot/restore -->
+</body>
+</html>

@@ -1,0 +1,26 @@
+/* Theme button + panel (shared by the app and the static pages). Colours come from the variables theme-manager.js sets on <html>. */
+html.theme-anim, html.theme-anim *, html.theme-anim *::before, html.theme-anim *::after { transition: background-color .3s ease, color .3s ease, border-color .3s ease, box-shadow .3s ease !important; }
+
+.theme-toggle { width: 38px; height: 38px; border: 0; border-radius: var(--radius); display: inline-flex; align-items: center; justify-content: center; background: rgba(255, 255, 255, .16); color: var(--on-secondary); font-size: 16px; cursor: pointer; transition: transform .15s ease, filter .15s ease; }
+.theme-toggle:hover { filter: brightness(1.12); transform: scale(1.05); }
+@media (max-width: 1099px) { .theme-toggle { width: 40px; height: 40px; } }
+.theme-panel { position: absolute; right: 0; top: calc(100% + 10px); z-index: 300; width: 270px; padding: 14px; background: var(--card-bg); color: var(--text-color); border: 1px solid var(--light-gray); border-radius: 12px; box-shadow: 0 14px 34px var(--lift); }
+.theme-panel[hidden] { display: none; }
+.theme-panel::before { content: ""; position: absolute; right: 13px; top: -7px; width: 12px; height: 12px; background: var(--card-bg); border-left: 1px solid var(--light-gray); border-top: 1px solid var(--light-gray); transform: rotate(45deg); }
+.tp-h { font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; opacity: .75; margin: 2px 0 8px; }
+.tp-h:not(:first-child) { margin-top: 14px; }
+.tp-seg { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; padding: 4px; border-radius: 10px; background: var(--light-gray); }
+.tp-opt { display: inline-flex; flex-direction: column; align-items: center; gap: 3px; padding: 7px 4px; border: 0; border-radius: 7px; background: transparent; font-size: 12px; font-weight: 600; }
+.tp-opt.on { background: var(--primary-color); color: var(--on-primary); box-shadow: 0 2px 6px rgba(0, 0, 0, .2); }
+.tp-opt:hover:not(.on), .tp-theme:hover:not(.on) { background: rgba(128, 140, 152, .22); }
+.tp-themes { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.tp-theme { display: flex; align-items: center; gap: 8px; padding: 8px 10px; border: 2px solid transparent; border-radius: 8px; background: var(--light-gray); font-size: 13px; font-weight: 600; text-align: left; }
+.tp-theme.on { border-color: var(--primary-color); }
+.tp-sw { flex: none; width: 20px; height: 20px; border-radius: 50%; border: 2px solid var(--card-bg); box-shadow: 0 0 0 1px rgba(128, 140, 152, .5); }
+.tp-reset { margin-top: 14px; width: 100%; padding: 8px; border: 1px solid var(--light-gray); border-radius: 8px; background: transparent; font-size: 13px; font-weight: 600; }
+.tp-reset:hover { background: var(--light-gray); }
+
+@media (max-width: 768px) {
+  .theme-panel { position: fixed; right: 8px; left: 8px; top: auto; bottom: calc(var(--bottom-h, 90px) + 10px); width: auto; }
+  .theme-panel::before { display: none; }
+}
